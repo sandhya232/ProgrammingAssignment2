@@ -1,9 +1,17 @@
-The functions are used to return the inverse of a cached matrix
+#The functions are used to return the inverse of a cached matrix
 
-The first function is to create a special matrix to be inversed
- function
+#The first function is to create a special matrix to be inversed
+# It first sets the value of the matrix,
+# then gets the value of the matrix,
+# sets the value of the inverse of the matrix,
+# lastly gets the value of the inverse of the matrix.
 
-makeCacheMatrix <- function(x = matrix()) {matinv <- NULL
+
+ 
+
+makeCacheMatrix <- function(x = matrix()) {
+        
+        matinv <- NULL
         set <- function(y) {
                 x <<- y
                 matinv <<- NULL
@@ -21,20 +29,22 @@ makeCacheMatrix <- function(x = matrix()) {matinv <- NULL
 
 
 
-This function caches the special matrix and inverses it
+#This function caches the special matrix and returns the inverse of the matrix. 
+# It first checks for the computed inverse of matrix. If it exists the function caches the result.
+# If the inverse does not exist the function computes the inverse and sets the value using setinverse function.
 
- function
+ 
 
 cacheSolve <- function(x, ...) {
   
 
  matinv <- x$getinverse()
         if(!is.null(matinv)) {
-                message("getting cached data")
+                message("getting cached data.")
                 return(matinv)
         }
         data <- x$get()
-        matdata <- solve(data, ...)
+        matinv <- solve(data, ...)
         x$setinverse(matinv)
         matinv
    
@@ -42,4 +52,4 @@ cacheSolve <- function(x, ...) {
 
 }
 
-   '
+   
